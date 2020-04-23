@@ -12,9 +12,12 @@ Logger.getLogger("akka").setLevel(Level.OFF)
      .master("local")
      .appName("Word Count")
      .config("spark.some.config.option", "some-value")
+     .config("spark.sql.warehouse.dir", "file:///c:/tmp/spark-warehouse")
      .getOrCreate()
   
-  val mdf = spark.read.option("multiline","true").json("C:\\Users\\pradeep\\Desktop\\spark\\Input\\Nested.JSON")
-mdf.show(10)
+  val mdf = spark.read.option("multiLine",true).option("mode", "PERMISSIVE").json("C:\\Users\\pradeep\\Desktop\\spark\\Input\\Nested.json")
+  //val x=spark.read.csv("C:\\Users\\pradeep\\Desktop\\spark\\Wordcount\\Titanic_header.txt")
+  //mdf.printSchema()
+mdf.show(100,false)
 }
 }
