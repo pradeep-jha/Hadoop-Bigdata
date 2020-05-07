@@ -1,5 +1,6 @@
 package Example
 import org.apache.spark._
+import com.crealytics.spark.excel._
 import org.apache.spark.sql._
 import org.apache.log4j.{Level, Logger}
 object MultilineJSON {
